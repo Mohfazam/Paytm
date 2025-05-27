@@ -9,3 +9,7 @@ app.use(express.json());
 
 app.use("/api/v1", MainRouter);
 
+app.listen(3000, () => {
+    console.log("Server Started on PORT 3000");
+});
+
