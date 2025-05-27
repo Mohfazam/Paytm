@@ -2,7 +2,7 @@ import express from 'express';
 
 export const userRouter = express.Router();
 
-userRouter.get("/user", (req, res) => {
+userRouter.get("/Health", (req, res) => {
     res.status(200).json({
         msg: "WORKED"
     });
