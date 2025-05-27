@@ -5,12 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
-const dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config();
-const MONGO_URL = process.env.MONGO_URL;
-mongoose_1.default.connect(MONGO_URL).then(() => {
-    console.log("Connected to MongoDB");
-});
 const userSchema = new mongoose_1.default.Schema({
     username: { required: true, type: String, unique: true, trim: true, lowercase: true, minLength: 3, maxLength: 30 },
     password: { required: true, type: String, minLength: 3 },

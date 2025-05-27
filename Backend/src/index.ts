@@ -2,12 +2,21 @@ import express from "express";
 import {User} from './Schema/db'
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
-
 import { router as MainRouter } from './Routes/index'
+import  Mongoose  from "mongoose";
+import dotenv from "dotenv"
+
 
 const app = express();
 
 app.use(express.json());
+dotenv.config();
+const MONGO_URL = process.env.MONGO_URL as string;
+
+Mongoose.connect(MONGO_URL).then(() => {
+    console.log("Connected to MongoDB");
+})
+
 
 app.use("/api/v1", MainRouter);
 
