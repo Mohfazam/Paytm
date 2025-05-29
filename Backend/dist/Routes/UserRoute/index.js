@@ -60,3 +60,22 @@ exports.userRouter.post("/Signup", (req, res) => __awaiter(void 0, void 0, void 
         token: token
     });
 }));
+exports.userRouter.post("/Signin", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const username = req.body.username;
+    const password = req.body.password;
+    const ExistingUser = yield db_1.User.findOne({
+        username: username
+    });
+    if (!ExistingUser) {
+        res.status(401).json({
+            Message: 'User not found'
+        });
+    }
+    const token = jsonwebtoken_1.default.sign({
+        userid: ExistingUser._id
+    }, JWT_SECRET);
+    res.status(201).json({
+        Message: "User Logged In Successfully",
+        Token: token
+    });
+}));

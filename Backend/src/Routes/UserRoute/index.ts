@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import {z} from 'zod/v4';
+import {jwt, z} from 'zod/v4';
 import { User } from '../../Schema/db';
 import dotenv from "dotenv"
 import  Jwt  from 'jsonwebtoken';
@@ -61,3 +61,42 @@ userRouter.post("/Signup", async (req, res) => {
         token: token
     });
 });
+
+const signinBody = z.object({
+    username: z.string().trim().email(),
+    password: z.string()
+})
+
+userRouter.post("/Signin", async(req, res) => {
+
+    const {success} = signinBody.safeParse(req.body);
+
+    if(!success){
+        res.status(411).json({
+            Message: "Invalid Inputs"
+        })
+    }
+
+    const username = req.body.username;
+    const password = req.body.password;
+
+    const ExistingUser = await User.findOne({
+        username: username
+    });
+
+    if(!ExistingUser){
+        res.status(401).json({
+            Message: 'User not found'
+        });
+    }
+
+    const token = Jwt.sign({
+            userid: ExistingUser!._id  
+        }, JWT_SECRET);
+
+    res.status(201).json({
+        Message: "User Logged In Successfully",
+        Token: token
+    });
+});
+
