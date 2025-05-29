@@ -60,7 +60,17 @@ exports.userRouter.post("/Signup", (req, res) => __awaiter(void 0, void 0, void 
         token: token
     });
 }));
+const signinBody = v4_1.z.object({
+    username: v4_1.z.string().trim().email(),
+    password: v4_1.z.string()
+});
 exports.userRouter.post("/Signin", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { success } = signinBody.safeParse(req.body);
+    if (!success) {
+        res.status(411).json({
+            Message: "Invalid Inputs"
+        });
+    }
     const username = req.body.username;
     const password = req.body.password;
     const ExistingUser = yield db_1.User.findOne({
