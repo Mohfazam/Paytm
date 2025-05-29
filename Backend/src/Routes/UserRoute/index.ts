@@ -1,6 +1,5 @@
 import express from 'express';
 import {z} from 'zod/v4';
-import { User } from '../../Schema/db';
 
 export const userRouter = express.Router();
 
