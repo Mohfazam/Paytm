@@ -9,7 +9,7 @@ dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 
-export const userRouter = express.Router();
+export const userAuthRouter = express.Router();
 
 const UserInput = z.object({
         username: z.string().trim().lowercase(),
@@ -19,14 +19,14 @@ const UserInput = z.object({
 
     })
 
-userRouter.get("/Health", (req, res) => {
+userAuthRouter.get("/Health", (req, res) => {
     res.status(200).json({
         msg: " User EndPoint is Running Up and Workind"
     });
 });
 
 
-userRouter.post("/Signup", async (req, res) => {
+userAuthRouter.post("/Signup", async (req, res) => {
     const {success} = UserInput.safeParse(req.body);
 
     if(!success){
@@ -67,7 +67,7 @@ const signinBody = z.object({
     password: z.string()
 })
 
-userRouter.post("/Signin", async(req, res) => {
+userAuthRouter.post("/Signin", async(req, res) => {
 
     const {success} = signinBody.safeParse(req.body);
 
