@@ -1,5 +1,5 @@
 import  express  from "express";
-export const userUpdateRouter = express.Router();
+export const userExtrasRouter = express.Router();
 import { User } from "../../Schema/db";
 import { authMiddleware } from "../../middlewares/AuthMiddleware";
 import z from "zod";
@@ -11,7 +11,7 @@ const updateBody = z.object({
 })
 
 
-userUpdateRouter.put("/Credentials", authMiddleware, async (req, res) => {
+userExtrasRouter.put("/CredentialsUpdate", authMiddleware, async (req, res) => {
     const {success} = updateBody.safeParse(req.body);
 
     if(!success){

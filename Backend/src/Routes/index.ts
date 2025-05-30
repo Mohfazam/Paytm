@@ -1,9 +1,9 @@
 import express from "express";
 import {userAuthRouter} from "./UserAuthRoute";
-import { userUpdateRouter } from "./userUpdateRoute/userUpdateRoute";
+import { userExtrasRouter } from "./userUpdateRoute/userExtrasRoute";
 
 export const router = express.Router();
 
 
 router.use("/user", userAuthRouter);
-router.use("/userUpdate", userUpdateRouter);
+router.use("/userUpdate", userExtrasRouter);
