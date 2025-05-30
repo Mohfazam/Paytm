@@ -22,5 +22,9 @@ userUpdateRouter.put("/Credentials", authMiddleware, async (req, res) => {
     }
     console.log(req.body);
     await User.findOneAndUpdate({_id: (req as any).userid}, req.body);
+
+    res.status(201).json({
+        Message: "Details Updated Successfully"
+    })
     
 });
