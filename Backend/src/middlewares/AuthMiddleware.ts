@@ -1,3 +1,4 @@
+
 import Jwt from "jsonwebtoken";
 import { Express } from "express";
 
@@ -15,10 +16,9 @@ export const authMiddleware = (req, res, next) => {
     const token = authHeader.split(' ')[1];
 
     try{
-        const decoded = Jwt.verify(token, JWT_SECRET!);
-//@ts-ignore
+        const decoded = Jwt.verify(token, JWT_SECRET!) as {userid: String};
 
-        req.userId = decoded.userId;
+        req.userid = decoded.userid;
 
         next();
     } catch(erro){

@@ -5,14 +5,14 @@ import jwt from 'jsonwebtoken';
 import { router as MainRouter } from './Routes/index'
 import  Mongoose  from "mongoose";
 import dotenv from "dotenv"
+dotenv.config();
+const MONGO_URL = process.env.MONGO_URL!;
 
 
 const app = express();
 app.use(cors());
 
 app.use(express.json());
-dotenv.config();
-const MONGO_URL = process.env.MONGO_URL as string;
 
 Mongoose.connect(MONGO_URL).then(() => {
     console.log("Connected to MongoDB");
