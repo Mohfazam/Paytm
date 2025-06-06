@@ -1,5 +1,5 @@
 import express from "express";
-import {User} from './Schema/db'
+import {User} from './UserSchema/db'
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
 import { MainRouter } from './Routes/index'

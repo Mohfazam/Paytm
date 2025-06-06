@@ -1,6 +1,6 @@
 import  express  from "express";
 export const userExtrasRouter = express.Router();
-import { User } from "../../Schema/db";
+import { User } from "../../UserSchema/db";
 import { authMiddleware } from "../../middlewares/AuthMiddleware";
 import z from "zod";
 
