@@ -16,10 +16,11 @@ exports.accountRouter = void 0;
 const express_1 = __importDefault(require("express"));
 const AuthMiddleware_1 = require("../../middlewares/AuthMiddleware");
 const db_1 = require("../../Schema/Bank Account Schema/db");
+const mongoose_1 = __importDefault(require("mongoose"));
 exports.accountRouter = express_1.default.Router();
 exports.accountRouter.get("/Balance", AuthMiddleware_1.authMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const balanceDoc = yield db_1.Accountbalance.findOne({
+        const balanceDoc = yield db_1.Account.findOne({
             userid: req.userid
         });
         if (!balanceDoc) {
@@ -35,6 +36,38 @@ exports.accountRouter.get("/Balance", AuthMiddleware_1.authMiddleware, (req, res
         res.status(500).json({
             Message: "Something went wrong",
             error: error.message
+        });
+    }
+}));
+exports.accountRouter.post("/Transfer", AuthMiddleware_1.authMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const session = yield mongoose_1.default.startSession();
+    session.startTransaction();
+    try {
+        const { amount, to } = req.body;
+        const account = yield db_1.Account.findOne({ userid: req.userid }).session(session);
+        if (!account || account.balance < amount) {
+            yield session.abortTransaction();
+            res.status(400).json({
+                Message: "Insufficient Funds"
+            });
+        }
+        const toAccount = db_1.Account.findOne({ userid: to }).session(session);
+        if (!toAccount) {
+            yield session.abortTransaction();
+            res.status(400).json({
+                Message: "Invalid account"
+            });
+        }
+        yield db_1.Account.updateOne({ userid: req.userid }, { $inc: { balance: -amount } }).session(session);
+        yield db_1.Account.updateOne({ userid: to }, { $inc: { balance: amount } }).session(session);
+        yield session.commitTransaction();
+        res.status(200).json({
+            Message: "Transfer Successfull"
+        });
+    }
+    catch (error) {
+        res.status(404).json({
+            Message: "Something Went Wrong"
         });
     }
 }));

@@ -55,7 +55,7 @@ exports.userAuthRouter.post("/Signup", (req, res) => __awaiter(void 0, void 0, v
         lastname: req.body.lastname
     });
     const userid = user._id;
-    yield db_2.Accountbalance.create({
+    yield db_2.Account.create({
         userid,
         balance: 1 + Math.random() * 1000
     });
