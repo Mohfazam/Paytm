@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { User } from "../UserSchema/db";
 
 const BankSchema = new mongoose.Schema({
     userid: {Type: mongoose.Schema.Types.ObjectId, required: true, ref: "User"},
