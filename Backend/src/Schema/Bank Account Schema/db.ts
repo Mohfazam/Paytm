@@ -5,4 +5,4 @@ const AccountbalanceSchema = new mongoose.Schema({
     balance: {type: Number, required: true}
 });
 
-export const  Accountbalance = mongoose.model("Accountbalance", AccountbalanceSchema);
+export const  Account = mongoose.model("Accountbalance", AccountbalanceSchema);

@@ -4,7 +4,7 @@ import {jwt, z} from 'zod/v4';
 import { User } from '../../Schema/UserSchema/db';
 import dotenv from "dotenv"
 import  Jwt  from 'jsonwebtoken';
-import { Accountbalance } from '../../Schema/Bank Account Schema/db';
+import { Account } from '../../Schema/Bank Account Schema/db';
 
 dotenv.config();
 
@@ -56,7 +56,7 @@ userAuthRouter.post("/Signup", async (req, res) => {
     
     const userid = user._id;
     
-    await Accountbalance.create({
+    await Account.create({
         userid,
         balance: 1 + Math.random() * 1000
     });
