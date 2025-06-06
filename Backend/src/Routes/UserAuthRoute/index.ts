@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import {jwt, z} from 'zod/v4';
-import { User } from '../../Schema/db';
+import { User } from '../../Schema/UserSchema/db';
 import dotenv from "dotenv"
 import  Jwt  from 'jsonwebtoken';
 
