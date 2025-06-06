@@ -2,7 +2,7 @@ import express from "express";
 import {User} from './Schema/db'
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
-import { router as MainRouter } from './Routes/index'
+import { MainRouter } from './Routes/index'
 import  Mongoose  from "mongoose";
 import dotenv from "dotenv"
 dotenv.config();

@@ -2,8 +2,8 @@ import express from "express";
 import {userAuthRouter} from "./UserAuthRoute";
 import { userExtrasRouter } from "./userUpdateRoute/userExtrasRoute";
 
-export const router = express.Router();
+export const MainRouter = express.Router();
 
 
-router.use("/user", userAuthRouter);
-router.use("/userUpdate", userExtrasRouter);
+MainRouter.use("/user", userAuthRouter);
+MainRouter.use("/userUpdate", userExtrasRouter);
