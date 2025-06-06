@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/routes/index.ts","./src/routes/userroute/index.ts","./src/schema/db.ts"],"version":"5.8.3"}
+{"root":["./src/index.ts","./src/routes/index.ts","./src/routes/accountroute/index.ts","./src/routes/userauthroute/index.ts","./src/routes/userupdateroute/userextrasroute.ts","./src/schema/bank account schema/db.ts","./src/schema/userschema/db.ts","./src/middlewares/authmiddleware.ts"],"version":"5.8.3"}
