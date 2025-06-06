@@ -1,30 +1,32 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import { authMiddleware } from "../../middlewares/AuthMiddleware";
 import { Accountbalance } from "../../Schema/Bank Account Schema/db";
-
-import { Request } from "express";
 
 export interface AuthenticatedRequest extends Request {
     userid?: string;
 }
 
-export const accountRouter  = express.Router();
+export const accountRouter = express.Router();
 
-accountRouter.get("/Balance", authMiddleware, (req:AuthenticatedRequest, res) => {
+accountRouter.get("/Balance", authMiddleware, async (req: AuthenticatedRequest, res: Response) => {
+    try {
+        const balanceDoc = await Accountbalance.findOne({
+            userid: req.userid
+        });
 
-    
+        if (!balanceDoc) {
+             res.status(404).json({
+                Message: "Insufficient Funds or Invalid Credentials"
+            });
+        }
 
-    const balance = Accountbalance.findOne({
-        userid:req.userid
-    });
-
-    if(!balance){
-        res.status(404).json({
-            Message: "Insufficint Funds or invalid Credentials"
-        })
-    };
-
-    res.status(201).json({
-        Message: `The Balance of the user ${req.userid} is: ${balance}`
-    })
+         res.status(200).json({
+            Message: `The Balance of the user ${req.userid} is: ₹${balanceDoc!.balance.toFixed(2)}`
+        });
+    } catch (error) {
+         res.status(500).json({
+            Message: "Something went wrong",
+            error: (error as Error).message
+        });
+    }
 });
