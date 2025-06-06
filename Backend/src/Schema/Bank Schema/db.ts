@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-const BankSchema = new mongoose.Schema({
-    userid: {Type: mongoose.Schema.Types.ObjectId, required: true, ref: "User"},
-    balance: {Type: Number, required: true}
+const AccountbalanceSchema = new mongoose.Schema({
+    userid: {type: mongoose.Schema.Types.ObjectId, required: true, ref: "User"},
+    balance: {type: Number, required: true}
 });
 
-export const  BankBalance = mongoose.model("bankbalance", BankSchema);
+export const  BankBalance = mongoose.model("Accountbalance", AccountbalanceSchema);
