@@ -6,4 +6,4 @@ export const MainRouter = express.Router();
 
 
 MainRouter.use("/user", userAuthRouter);
-MainRouter.use("/userUpdate", userExtrasRouter);
+MainRouter.use("/userExtras", userExtrasRouter);
