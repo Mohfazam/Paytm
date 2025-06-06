@@ -35,7 +35,8 @@ accountRouter.get("/Balance", authMiddleware, async (req: AuthenticatedRequest, 
 accountRouter.post("/Transfer", authMiddleware, async (req:AuthenticatedRequest, res) => {
     const session  = await mongoose.startSession();
 
-    session.startTransaction();
+    try{
+        session.startTransaction();
     const {amount , to} = req.body;
 
     const account = await Account.findOne({userid: req.userid}).session(session);
@@ -64,4 +65,9 @@ accountRouter.post("/Transfer", authMiddleware, async (req:AuthenticatedRequest,
     res.status(200).json({
         Message: "Transfer Successfull"
     });
+    } catch(error){
+        res.status(404).json({
+            Message: "Something Went Wrong"
+        });
+    }
 });
