@@ -4,7 +4,7 @@ import {jwt, z} from 'zod/v4';
 import { User } from '../../Schema/UserSchema/db';
 import dotenv from "dotenv"
 import  Jwt  from 'jsonwebtoken';
-import { Accountbalance } from '../../Schema/Bank Schema/db';
+import { Accountbalance } from '../../Schema/Bank Account Schema/db';
 
 dotenv.config();
 
