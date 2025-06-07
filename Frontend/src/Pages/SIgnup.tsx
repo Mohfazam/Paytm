@@ -5,11 +5,20 @@ import { InputField } from "../Components/InputField"
 import { SubHeading } from "../Components/Subheading"
 
 export const Signup = () => {
-    return <div>
-        <Heading Label={"Hello"}/>
-        <SubHeading Text={"Hello again but its an subheading so it should be long"} />
-        <InputField Label="First Name" PlaceHolder={"Enter Your Name"}/>
-        <Button Label="Click Me"/>
-        <BottomWarning Label={"Don't Have an Account?"} ButtonText={"Sign Up"} to={"/ToUnderline"}/>
+    return <div className="bg-slate-300 h-screen flex justify-center">
+    <div className="flex flex-col justify-center">
+      <div className="rounded-lg bg-white w-80 text-center p-2 h-max px-4">
+        <Heading Label={"Sign up"} />
+        <SubHeading Label={"Enter your infromation to create an account"} />
+        <InputField PlaceHolder="John" Label={"First Name"} />
+        <InputField PlaceHolder="Doe" Label={"Last Name"} />
+        <InputField PlaceHolder="harkirat@gmail.com" Label={"Email"} />
+        <InputField PlaceHolder="123456" Label={"Password"} />
+        <div className="pt-4">
+          <Button Label={"Sign up"} />
+        </div>
+        <BottomWarning Label={"Already have an account?"} ButtonText={"Sign in"} to={"/signin"} />
+      </div>
     </div>
+  </div>
 }

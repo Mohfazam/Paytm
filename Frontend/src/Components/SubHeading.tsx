@@ -1,9 +1,9 @@
 interface SubHeadingProps{
-    Text: string
+    Label: string
 }
 
-export const SubHeading = ({Text}:SubHeadingProps) =>{
+export const SubHeading = ({Label}:SubHeadingProps) =>{
     return <div className="text-slate-500 text-md pt-1 px-4 pb-4">
-        {Text}
+        {Label}
     </div>
 }
