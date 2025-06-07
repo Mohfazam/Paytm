@@ -5,6 +5,7 @@ import { Button } from "./Components/Button"
 import { Heading } from "./Components/Heading"
 import { InputField } from "./Components/InputField"
 import { SubHeading } from "./Components/Subheading"
+import { Users } from "./Components/User"
 
 export const Test = () => {
     return <div>
@@ -15,5 +16,6 @@ export const Test = () => {
         <BottomWarning Label={"Don't Have an Account?"} ButtonText={"Sign Up"} to={"/ToUnderline"}/>
         <Appbar />
         <Balance Value={40} />
+        <Users />
     </div>
 }
