@@ -1,3 +1,4 @@
+import { Appbar } from "./Components/AppBar"
 import { BottomWarning } from "./Components/BottomWarning"
 import { Button } from "./Components/Button"
 import { Heading } from "./Components/Heading"
@@ -11,5 +12,6 @@ export const Test = () => {
         <InputField Label="First Name" PlaceHolder={"Enter Your Name"}/>
         <Button Label="Click Me"/>
         <BottomWarning Label={"Don't Have an Account?"} ButtonText={"Sign Up"} to={"/ToUnderline"}/>
+        <Appbar />
     </div>
 }
