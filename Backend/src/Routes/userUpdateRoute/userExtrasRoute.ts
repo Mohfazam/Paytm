@@ -29,7 +29,7 @@ userExtrasRouter.put("/CredentialsUpdate", authMiddleware, async (req, res) => {
     
 });
 
-userExtrasRouter.get("/bulk",async (req, res) => {
+userExtrasRouter.get("/bulk",authMiddleware,async (req, res) => {
     const filter = req.query.filter || "";
 
     const users = await User.find({
