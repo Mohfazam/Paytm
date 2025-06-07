@@ -29,16 +29,16 @@ userExtrasRouter.put("/CredentialsUpdate", authMiddleware, async (req, res) => {
     
 });
 
-userExtrasRouter.get("/bulk", async (req, res) => {
+userExtrasRouter.get("/bulk",async (req, res) => {
     const filter = req.query.filter || "";
 
     const users = await User.find({
         $or: [{
-            firstName: {
+            firstname: {
                 "$regex": filter
             }
         }, {
-            lastName: {
+            lastname: {
                 "$regex": filter
             }
         }]
@@ -47,9 +47,9 @@ userExtrasRouter.get("/bulk", async (req, res) => {
     res.json({
         user: users.map(user => ({
             username: user.username,
-            firstName: user.firstname,
-            lastName: user.lastname,
+            firstname: user.firstname,
+            lastname: user.lastname,
             _id: user._id
         }))
-    })
-})
+    });
+});

@@ -41,11 +41,11 @@ exports.userExtrasRouter.get("/bulk", (req, res) => __awaiter(void 0, void 0, vo
     const filter = req.query.filter || "";
     const users = yield db_1.User.find({
         $or: [{
-                firstName: {
+                firstname: {
                     "$regex": filter
                 }
             }, {
-                lastName: {
+                lastname: {
                     "$regex": filter
                 }
             }]
@@ -53,8 +53,8 @@ exports.userExtrasRouter.get("/bulk", (req, res) => __awaiter(void 0, void 0, vo
     res.json({
         user: users.map(user => ({
             username: user.username,
-            firstName: user.firstname,
-            lastName: user.lastname,
+            firstname: user.firstname,
+            lastname: user.lastname,
             _id: user._id
         }))
     });
