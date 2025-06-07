@@ -4,6 +4,7 @@ import { BottomWarning } from "./Components/BottomWarning"
 import { Button } from "./Components/Button"
 import { Heading } from "./Components/Heading"
 import { InputField } from "./Components/InputField"
+import { SendMoney } from "./Components/SendMoney"
 import { SubHeading } from "./Components/Subheading"
 import { Users } from "./Components/User"
 
@@ -17,5 +18,6 @@ export const Test = () => {
         <Appbar />
         <Balance Value={40} />
         <Users />
+        <SendMoney />
     </div>
 }
