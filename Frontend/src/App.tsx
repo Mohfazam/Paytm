@@ -3,7 +3,8 @@ import { SignIn } from "./Pages/Signin"
 import { Signup } from "./Pages/Signup"
 import { Dashboard } from "./Pages/Dashboard"
 import { Send } from "./Pages/Send"
-import { Heading } from "./Components/Heading"
+// import { Heading } from "./Components/Heading"
+import { Test } from "./Test"
 function App() {
 
 
@@ -11,7 +12,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/test" element={<Heading label={"Hello"}/>} />
+          <Route path="/test" element={<Test />} />
           <Route path="/Signup" element={<Signup />}/>
           <Route path="/Signin" element={<SignIn />}/>
           <Route path="/Dashboard" element={<Dashboard />}/>
