@@ -1,4 +1,5 @@
 import { Appbar } from "./Components/AppBar"
+import { Balance } from "./Components/Balance"
 import { BottomWarning } from "./Components/BottomWarning"
 import { Button } from "./Components/Button"
 import { Heading } from "./Components/Heading"
@@ -13,5 +14,6 @@ export const Test = () => {
         <Button Label="Click Me"/>
         <BottomWarning Label={"Don't Have an Account?"} ButtonText={"Sign Up"} to={"/ToUnderline"}/>
         <Appbar />
+        <Balance Value={40} />
     </div>
 }

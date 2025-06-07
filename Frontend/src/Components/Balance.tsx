@@ -1,5 +1,5 @@
 interface BalanceProps{
-    Value: string;
+    Value: string | number;
 }
 
 export const Balance = ({Value}:BalanceProps) => {
@@ -7,7 +7,7 @@ export const Balance = ({Value}:BalanceProps) => {
         <div className="font-bold text-lg">
             Your balance:
         </div>
-        <div>
+        <div className="font-semibold ml-4 text-lg">
             Rs: {Value}
         </div>
     </div>
