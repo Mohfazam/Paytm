@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Button } from "./Button"
 import axios from "axios";
 
-interface UserProps{
+interface UserProps {
     _id: string;
     username: string;
     firstname: string;
@@ -14,9 +14,13 @@ export const Users = () => {
     const [Filter, SetFilter] = useState("");
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/api/v1/userExtras/bulk?filter=${Filter}`).then((response) => {
-            setUsers(response.data.user);
-        })
+        const timeout = setTimeout(() => {
+            axios.get(`http://localhost:3000/api/v1/userExtras/bulk?filter=${Filter}`).then((response) => {
+                setUsers(response.data.user);
+            })
+        }, 300);
+
+        return () => clearTimeout(timeout);
     }, [Filter])
 
     return <>
