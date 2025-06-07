@@ -24,7 +24,8 @@ export const Signup = () => {
     })
 
     console.log(`Sign Successfull with details ${response}`);
-    localStorage.setItem("Token", response.data.Token)
+    localStorage.setItem("Token", response.data.token);
+    console.log(response.data.Token);
     } catch(error){
       console.log("Something went wrong.  Error: ", error);
     }
