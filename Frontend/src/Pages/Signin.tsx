@@ -8,11 +8,9 @@ export const SignIn = () => {
     return <div className="bg-slate-300 h-screen flex justify-center">
     <div className="flex flex-col justify-center">
       <div className="rounded-lg bg-white w-80 text-center p-2 h-max px-4">
-        <Heading Label={"Sign up"} />
-        <SubHeading Label={"Enter your infromation to create an account"} />
-        <InputField PlaceHolder="John" Label={"First Name"} />
-        <InputField PlaceHolder="Doe" Label={"Last Name"} />
-        <InputField PlaceHolder="harkirat@gmail.com" Label={"Email"} />
+        <Heading Label={"Sign In"} />
+        <SubHeading Label={"Enter your credentials to access your account"} />
+        <InputField PlaceHolder="example@gmail.com" Label={"Email"} />
         <InputField PlaceHolder="123456" Label={"Password"} />
         <div className="pt-4">
           <Button Label={"Sign up"} />
