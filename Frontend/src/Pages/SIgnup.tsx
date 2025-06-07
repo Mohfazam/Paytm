@@ -14,16 +14,17 @@ export const Signup = () => {
   const [LastName, setLastName] = useState("");
   const [Password, setPassword] = useState("");
 
-  const HandleSubmit = () => {
+  const HandleSubmit = async () => {
     try{
-      const user = axios.post("http://localhost:3000/api/v1/user/Signup", {
+      const response = await axios.post("http://localhost:3000/api/v1/user/Signup", {
       username: Username, 
       firstname: firstName, 
       lastname:LastName,
       password: Password
     })
 
-    console.log(`Sign Successfull with details ${user}`);
+    console.log(`Sign Successfull with details ${response}`);
+    localStorage.setItem("Token", response.data.Token)
     } catch(error){
       console.log("Something went wrong.  Error: ", error);
     }
