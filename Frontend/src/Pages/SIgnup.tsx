@@ -20,11 +20,12 @@ export const Signup = () => {
       username: Username, 
       firstname: firstName, 
       lastname:LastName,
-      password: Password
+      password: Password    
     })
 
     console.log(`Sign Successfull with details ${response}`);
     localStorage.setItem("Token", response.data.token);
+    
     console.log(response.data.Token);
     } catch(error){
       console.log("Something went wrong.  Error: ", error);
