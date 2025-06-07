@@ -15,7 +15,7 @@ export const SignIn = () => {
         <div className="pt-4">
           <Button Label={"Signin"} />
         </div>
-        <BottomWarning Label={"Don't Have an Account?"} ButtonText={"Create one"} to={"/signin"} />
+        <BottomWarning Label={"Don't Have an Account?"} ButtonText={"Create one"} to={"/Signup"} />
       </div>
     </div>
   </div>
