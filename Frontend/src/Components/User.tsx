@@ -11,19 +11,22 @@ interface UserProps{
 
 export const Users = () => {
     const [users, setUsers] = useState<UserProps[]>([]);
+    const [Filter, SetFilter] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/v1/userExtras/bulk").then((response) => {
+        axios.get(`http://localhost:3000/api/v1/userExtras/bulk?filter=${Filter}`).then((response) => {
             setUsers(response.data.user);
         })
-    }, [])
+    }, [Filter])
 
     return <>
         <div className="font-bold mt-6 text-lg">
             Users
         </div>
         <div className="my-2">
-            <input type="text" placeholder="Search users..." className="w-full px-2 py-1 border rounded border-slate-200"></input>
+            <input onChange={(e) => {
+                SetFilter(e.target.value);
+            }} type="text" placeholder="Search users..." className="w-full px-2 py-1 border rounded border-slate-200"></input>
         </div>
         <div>
             {users.map(user => <User key={user._id} user={user} />)}
