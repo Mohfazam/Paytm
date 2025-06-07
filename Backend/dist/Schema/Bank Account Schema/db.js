@@ -9,4 +9,4 @@ const AccountbalanceSchema = new mongoose_1.default.Schema({
     userid: { type: mongoose_1.default.Schema.Types.ObjectId, required: true, ref: "User" },
     balance: { type: Number, required: true }
 });
-exports.Account = mongoose_1.default.model("Accountbalance", AccountbalanceSchema);
+exports.Account = mongoose_1.default.model("Accounts", AccountbalanceSchema);

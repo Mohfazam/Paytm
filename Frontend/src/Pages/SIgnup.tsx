@@ -15,9 +15,18 @@ export const Signup = () => {
   const [Password, setPassword] = useState("");
 
   const HandleSubmit = () => {
-    axios.post("http://localhost:3000/api/v1/user/Signup", {
-      Username, firstName, LastName, Password
+    try{
+      const user = axios.post("http://localhost:3000/api/v1/user/Signup", {
+      username: Username, 
+      firstname: firstName, 
+      lastname:LastName,
+      password: Password
     })
+
+    console.log(`Sign Successfull with details ${user}`);
+    } catch(error){
+      console.log("Something went wrong.  Error: ", error);
+    }
   }
 
   return <div className="bg-slate-300 h-screen flex justify-center">
