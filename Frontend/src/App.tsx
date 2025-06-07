@@ -11,7 +11,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="test" element={<Heading label={"Hello"}/>} />
+          <Route path="/test" element={<Heading label={"Hello"}/>} />
           <Route path="/Signup" element={<Signup />}/>
           <Route path="/Signin" element={<SignIn />}/>
           <Route path="/Dashboard" element={<Dashboard />}/>
