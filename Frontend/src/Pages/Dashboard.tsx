@@ -3,7 +3,7 @@ import { Balance } from "../Components/Balance"
 import { Users } from "../Components/User"
 
 export const Dashboard = () => {
-    return <div>
+    return <div className="ml-2 mr-2">
         <Appbar />
         <div>
             <Balance Value={"10,0000"} />
