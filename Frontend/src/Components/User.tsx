@@ -39,7 +39,7 @@ export const Users = () => {
     </>
 }
 
-function User({ user }: any) {
+function User({ user }: any ) {
     return <div className="flex justify-between">
         <div className="flex">
             <div className="rounded-full h-12 w-12 bg-slate-200 flex justify-center mt-1 mr-2">
