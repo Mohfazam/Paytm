@@ -4,8 +4,8 @@ import { SubHeading } from "./Components/Subheading"
 
 export const Test = () => {
     return <div>
-        <Heading label={"Hello"}/>
+        <Heading Label={"Hello"}/>
         <SubHeading Text={"Hello again but its an subheading so it should be long"} />
-        <InputField />
+        <InputField Label="First Name" PlaceHolder={"Enter Your Name"}/>
     </div>
 }
