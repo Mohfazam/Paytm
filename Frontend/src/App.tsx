@@ -2,9 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { SignIn } from "./Pages/Signin"
 import { Signup } from "./Pages/Signup"
 import { Dashboard } from "./Pages/Dashboard"
-import { Send } from "./Pages/Send"
+// import { Send } from "./Pages/Send"
 // import { Heading } from "./Components/Heading"
 import { Test } from "./Test"
+import { SendMoney } from "./Components/SendMoney"
 function App() {
 
 
@@ -16,7 +17,7 @@ function App() {
           <Route path="/Signup" element={<Signup />}/>
           <Route path="/Signin" element={<SignIn />}/>
           <Route path="/Dashboard" element={<Dashboard />}/>
-          <Route path="/Send" element={<Send />}/>
+          <Route path="/Send" element={<SendMoney />}/>
         </Routes>
       </BrowserRouter>
     </>

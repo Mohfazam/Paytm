@@ -2,7 +2,7 @@ import { BottomWarning } from "../Components/BottomWarning"
 import { Button } from "../Components/Button"
 import { Heading } from "../Components/Heading"
 import { InputField } from "../Components/InputField"
-import { SubHeading } from "../Components/Subheading"
+import { SubHeading } from "../Components/SubHeading"
 
 export const SignIn = () => {
     return <div className="bg-slate-300 h-screen flex justify-center">
