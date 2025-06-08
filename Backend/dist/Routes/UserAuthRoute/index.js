@@ -75,6 +75,7 @@ exports.userAuthRouter.post("/Signin", (req, res) => __awaiter(void 0, void 0, v
         res.status(411).json({
             Message: "Invalid Inputs"
         });
+        return;
     }
     const username = req.body.username;
     const password = req.body.password;
@@ -85,12 +86,13 @@ exports.userAuthRouter.post("/Signin", (req, res) => __awaiter(void 0, void 0, v
         res.status(401).json({
             Message: 'User not found'
         });
+        return;
     }
-    const token = jsonwebtoken_1.default.sign({
-        userid: ExistingUser._id
-    }, JWT_SECRET);
+    // TODO: Add password checking here if you implement hashing
+    const token = jsonwebtoken_1.default.sign({ userid: ExistingUser._id }, JWT_SECRET);
     res.status(201).json({
         Message: "User Logged In Successfully",
         Token: token
     });
+    return;
 }));

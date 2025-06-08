@@ -73,14 +73,14 @@ const signinBody = z.object({
     password: z.string()
 })
 
-userAuthRouter.post("/Signin", async(req, res) => {
+userAuthRouter.post("/Signin", async (req, res) => {
+    const { success } = signinBody.safeParse(req.body);
 
-    const {success} = signinBody.safeParse(req.body);
-
-    if(!success){
+    if (!success) {
         res.status(411).json({
             Message: "Invalid Inputs"
-        })
+        });
+        return;
     }
 
     const username = req.body.username;
@@ -90,19 +90,25 @@ userAuthRouter.post("/Signin", async(req, res) => {
         username: username
     });
 
-    if(!ExistingUser){
-        res.status(401).json({
+    if (!ExistingUser) {
+         res.status(401).json({
             Message: 'User not found'
         });
+        return;
     }
 
-    const token = Jwt.sign({
-            userid: ExistingUser!._id  
-        }, JWT_SECRET);
+    
+
+    const token = Jwt.sign(
+        { userid: ExistingUser._id },
+        JWT_SECRET
+    );
 
     res.status(201).json({
         Message: "User Logged In Successfully",
         Token: token
     });
+    return;
 });
+
 
