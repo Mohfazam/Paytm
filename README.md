@@ -1,8 +1,4 @@
-Here's your README.md in Markdown format — just copy and paste this into your project’s root directory as README.md:
 
-markdown
-Copy
-Edit
 # 💸 Paytm Clone – Digital Wallet App
 
 A full-stack digital wallet (Paytm-like) application that allows users to securely register, authenticate, check their account balance, and transfer funds in real-time to other users.
