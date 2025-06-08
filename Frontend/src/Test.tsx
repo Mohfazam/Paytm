@@ -5,7 +5,7 @@ import { Button } from "./Components/Button"
 import { Heading } from "./Components/Heading"
 import { InputField } from "./Components/InputField"
 import { SendMoney } from "./Components/SendMoney"
-import { SubHeading } from "./Components/Subheading"
+import { SubHeading } from "./Components/SubHeading"
 import { Users } from "./Components/User"
 
 export const Test = () => {
