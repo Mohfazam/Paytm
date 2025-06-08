@@ -29,7 +29,8 @@ exports.accountRouter.get("/Balance", AuthMiddleware_1.authMiddleware, (req, res
             });
         }
         res.status(200).json({
-            Message: `The Balance of the user ${req.userid} is: ₹${balanceDoc.balance.toFixed(2)}`
+            Message: `The Balance of the user ${req.userid} is: ₹${balanceDoc.balance.toFixed(2)}`,
+            Balance: balanceDoc.balance
         });
     }
     catch (error) {

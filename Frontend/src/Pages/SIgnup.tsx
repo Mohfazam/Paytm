@@ -4,7 +4,7 @@ import { BottomWarning } from "../Components/BottomWarning"
 import { Button } from "../Components/Button"
 import { Heading } from "../Components/Heading"
 import { InputField } from "../Components/InputField"
-import { SubHeading } from "../Components/Subheading"
+import { SubHeading } from "../Components/SubHeading"
 import axios from "axios"
 
 export const Signup = () => {

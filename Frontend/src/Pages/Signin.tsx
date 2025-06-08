@@ -12,14 +12,14 @@ export const SignIn = () => {
   const [username, setusername] = useState("");
   const [password, setPassword] = useState("");
 
-  const hanldeSignin = () => {
-    const response = axios.post("http://localhost:3000/api/v1/user/Signin", {
+  const hanldeSignin = async () => {
+    const response = await axios.post("http://localhost:3000/api/v1/user/Signin", {
       username,
       password
     });
 
     console.log(response);
-
+    localStorage.setItem("Token", response.data.token);
     alert("Signed in successfully");
     navigate("/dashboard");
   }

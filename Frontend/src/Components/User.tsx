@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Button } from "./Button"
 import axios from "axios";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface UserProps {
     _id: string;
